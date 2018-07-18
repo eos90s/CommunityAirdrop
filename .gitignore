@@ -1,0 +1,12 @@
+node_modules/
+yarn-error.log
+
+npm-debug.log
+
+# VIM
+*~
+*.swp
+.idea/
+
+ecosystem.config.js
+.DS_Store
