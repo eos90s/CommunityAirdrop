@@ -40,7 +40,7 @@ async function batchNtsTransfer(accounts, keyProvider) {
   }
 }
 
-export async function execAirdrop(keyProvider,begin = 0,limit = 4) {
+export async function execAirdrop(keyProvider,begin = 0,limit = 100) {
   try {
     let accounts = await getCommunityAccounts(begin,limit);
     //let curBegin  = begin;

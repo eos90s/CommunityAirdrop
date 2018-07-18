@@ -12,6 +12,7 @@
     "babel-register": "^6.26.0",
     "debug": "~2.6.9",
     "eosjs": "^15.0.3",
-    "mongoose": "^5.2.0"
+    "mongoose": "^5.2.0",
+    "mysql": "^2.15.0"
   }
 }
