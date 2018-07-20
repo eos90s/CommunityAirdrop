@@ -3,7 +3,7 @@ var connection = mysql.createConnection({
   host     : '35.236.130.82',
   user     : 'root',
   password : 'dKdh12@s/#s12',
-  database : 'test_eos90s'
+  database : 'dierci_eos90s'
 });
 connection.connect();
  
@@ -15,7 +15,7 @@ export async function getCommunityAccounts(begin,limit){
 
  		let accounts = [];
 
-		connection.query(`SELECT uid,eosaccount,tokencount from secondTable WHERE eosaccount IS NOT NULL and pwd != 'success' limit ${begin},${limit}`, function (error, results, fields) {//账号地址为空的没有取
+		connection.query(`SELECT uid,eosaccount,tokencount from thirdTable WHERE eosaccount IS NOT NULL and  tokencount > 0 and pwd != 'success' limit ${begin},${limit}`, function (error, results, fields) {//账号地址为空的没有取
 		  if (error) throw reject(error);
 
 		  // [
@@ -65,13 +65,13 @@ export async  function setCompleteRecord(eosAccount){
 	return new Promise(function(resolve,reject){
 		try{
 			//connection.connect();
-			connection.query(`UPDATE secondTable SET pwd = 'success' WHERE eosaccount = '${eosAccount}'`, function (error, results, fields) {
+			connection.query(`UPDATE thirdTable SET pwd = 'success' WHERE eosaccount = '${eosAccount}'`, function (error, results, fields) {
 				console.log(error);
 				if (error) throw reject(error);
 			})
 			resolve(`eosAccount:${eosAccount} mark success`);
 		}catch(e){
-			console.log(`UPDATE secondTable SET pwd = 'success' WHERE eosaccount = '${eosAccount}'`)
+			console.log(`UPDATE thirdTable SET pwd = 'success' WHERE eosaccount = '${eosAccount}'`)
 			reject(e);
 		}
 
